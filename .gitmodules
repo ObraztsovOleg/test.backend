@@ -1,0 +1,6 @@
+[submodule "modules"]
+	ignore = all
+	path = mod
+	url = ssh://git@dzo.sw.sbc.space:7998/cije/test.app.backend.git
+	branch = feature/CIJE-153
+
