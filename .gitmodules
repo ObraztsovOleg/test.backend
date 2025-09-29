@@ -1,6 +1,0 @@
-[submodule "modules"]
-	ignore = all
-	path = mod
-	url = ssh://git@github.com/ObraztsovOleg/test.backend.git
-	branch = mod
-
