@@ -29,10 +29,11 @@
 
 	<properties>
 		<java.version>17</java.version>
+		<!-- FORCE OVERRIDE FOR THE WHOLE ENGINE -->
+		<lombok.version>1.18.30</lombok.version>
 		<ufs-artifact-maven-plugin.version>1.0.11</ufs-artifact-maven-plugin.version>
 	</properties>
 
-	<!-- GLOBAL BUILD CONFIGURATION: Forces Java 17 and correct Lombok for all profiles -->
 	<build>
 		<plugins>
 			<plugin>
@@ -46,7 +47,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.18.30</version> 
+							<version>${lombok.version}</version> 
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -166,6 +167,7 @@
 				<dependency>
 					<groupId>org.projectlombok</groupId>
 					<artifactId>lombok</artifactId>
+					<version>${lombok.version}</version>
 					<scope>provided</scope>
 				</dependency>
 				<dependency>
@@ -187,6 +189,22 @@
 			</dependencies>
 			<build>
 				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.11.0</version>
+						<configuration>
+							<release>17</release>
+							<parameters>true</parameters>
+							<annotationProcessorPaths>
+								<path>
+									<groupId>org.projectlombok</groupId>
+									<artifactId>lombok</artifactId>
+									<version>${lombok.version}</version> 
+								</path>
+							</annotationProcessorPaths>
+						</configuration>
+					</plugin>
 					<plugin>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
